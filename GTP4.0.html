@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="81.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/a11y-dark.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
+  
+
+</head>
+<body id="root">
+  <div id="sidebar">
+    <div class="profile">
+        <img src="img/anonymous.jpg" alt="Profile Picture">
+        <button id="login">11111111111</button>
+    </div>
+    <button id="new-session">+ New Session</button>
+    <div class="session-storage"></div>
+    <hr id="persistent" class="persistent">
+    <div class="buttons">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <button><img src="img/image.png" alt="image Icon" style="height:17px; width:20px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 2px;margin-bottom: 5px;"> Super AI Drawing Mode</button>
+        <button><img src="img/actor.png" alt="actor Icon" style="height:17px; width:20px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 2px;margin-bottom: 5px;"> Prompt role-play</button>
+        <button><img src="img/helper.png" alt="helper Icon" style="height:17px; width:20px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 2px;margin-bottom: 3px;"> Customer Service</button>
+        <button><img src="img/Wechat.png" alt="Wechat Icon" style="height:17px; width:20px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 2px;margin-bottom: 5px;"> Group Chat</button>
+        <button id="modeSwitchButton"><img src="img/Sun.png" alt="Sun Icon" style="height:23px; width:23px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 0px;margin-bottom: 3px;"> Night Mode</button>
+        <button id ="loginB"><img src="img/login.png" alt="login Icon" style="height:17px; width:17px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 0px;margin-bottom: 3px;"> Login/Registration<span class="upgrade">upgrade</span></button>
+    </div>
+    <hr id="persistent" class="persistent">
+    <div class="more">
+        <span>More Functions</span>
+        <span>...</span>
+    </div>
+</div>
+
+<div id="main">
+  <div id="versionSelector">
+    <div class="versionButton" id="versionButton">
+      GPT3.5
+      <div id="dropdownMenu">
+        <p class="dropdownItem">GPT4.0</p>
+        <p class="dropdownItem">GPT5.0</p>
+      </div>
+    </div>
+    <p class="chatgtp" id="ChatGPT">ChatGPT</p>
+    <p class="PLUS" id="PLUS">PLUS</p>
+  </div>
+</div>
+
+
+
+
+  <div id ="content1">
+    <img id="ChatIcon" src="img/Chat.png" alt="Chat icon">
+    <div id="example">Example</div>
+    <p id="question1">"What is full stack development?"</p>
+    <p id="question2">" What should I get for her birthday"</p>
+    <p id="question3">"Share 10 good business ideas"</p>
+  </div>
+
+  <div id ="content2">
+    <img id="ChatIcon" src="img/CPU.png" alt="CPU icon">
+    <div id="power">Power</div>
+    <p id="question1">"Conversations can connect context"</p>
+    <p id="question2">"Can automatically reject improper requests"</p>
+    <p id="question3">"Try the fourth Industrial Revolution"</p>
+  </div>
+
+  <div id ="content3">
+    <img id="ChatIcon" src="img/Warn.png" alt="Warn icon">
+    <div id="limit">Limit</div>
+    <p id="question1">"May fabricate false information"</p>
+    <p id="question2">"The data is only up to September 2021"</p>
+    <p id="question3">"May have incorrect information"</p>
+  </div>
+
+    <div id="conversation">
+      <!-- 对话内容会在这里 -->
+    </div>
+    <div id="inputSection">
+      <input type="text" id="inputText" placeholder="Want ask something?">
+      <button id="sendButton">Send</button>
+    </div>
+     
+    <!--注册登录框-->>
+    <div class="container" id="containers" style="display: none;">
+      <div class="form-box">
+          <!--注册-->>
+          <div class="register-box hidden" >
+              <h1>register</h1>
+              <input id="registerUsername" type="email" placeholder="Email">
+              <div id="registerUsernameError" class="error-message"></div>
+              <input id="registerPassword" type="password" placeholder="Password">
+              <div id="registerPasswordError" class="error-message"></div>
+              <input id="confirmPassword" type="password" placeholder="Repassword">
+              <div id="confirmPasswordError" class="error-message"></div>
+              <input id="autoCode" type="text" placeholder="AutoCode">
+              <div id="autoCodeError" class="error-message"></div>
+              <button  id="registerButton">REGISTER</button>
+          </div>
+          <!--登录-->>
+          <div class="login-box">
+              <h1>login</h1> 
+              <input id="loginUsername" type="text" placeholder="Username">
+              <div id="usernameError" class="error-message"></div>
+              <input id="loginPassword" type ="password" placeholder="Password">
+              <div id="passwordError" class="error-message"></div>
+              <button id="loginButton">LOGIN</button>
+              <div id="loginError" class="error-message"></div>
+          </div>
+      </div>
+      <div class="con-box left">
+          <h2>Welcome <span>AI Hut</span></h2>
+          <p>Come get your own <span>AI assistant</span></p>
+          <img src="img/user.jpeg" alt="image">
+          <p>Have account</p>
+          <button id="goToLogin">Login</button>
+      </div>
+      <div class="con-box right">
+          <h2>Welcome <span>AI Hut</span></h2>
+          <p>Come try your own <span>AI Assistant</span></p>
+          <img src="img/user.jpg">
+          <p>No account?</p>
+          <button id="register">Register</button>
+      </div>
+    </div>
+
+    <div id="overlay" style="display: none;"></div>
+
+
+
+    <script>
+      let login=document.getElementById('goToLogin');
+      let register = document.getElementById('register');
+      let form_box=document.getElementsByClassName('form-box')[0];
+      let register_box=document.getElementsByClassName('register-box')[0];
+      let login_box=document.getElementsByClassName('login-box')[0];
+  
+      register.addEventListener('click',()=>{
+          form_box.style.transform='translateX(80%)';
+          login_box.classList.add('hidden');
+          register_box.classList.remove('hidden');
+      })
+  
+      goToLogin.addEventListener('click',()=>{
+          form_box.style.transform='translateX(0%)';
+          register_box.classList.add('hidden');
+          login_box.classList.remove('hidden');
+      })
+  </script>
+  <script src="sessionButtonGenerator.js"></script>
+  <script src="version.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="loginChange.js"></script>
+  <script src="test1.js"></script>
+  <script src="clickLogin.js"></script>
+  <script src="Night.js"></script>
+</body>
+</html>

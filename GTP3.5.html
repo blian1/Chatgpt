@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/styles/default.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.7.2/build/highlight.min.js"></script>
+  
+
+</head>
+<body id="root">
+  <div id="sidebar">
+    <div class="profile">
+        <img src="img/anonymous.jpg" alt="Profile Picture">
+        <button id="login">点击登录</button>
+    </div>
+    <button id="new-session">+ 新会话</button>
+    <div class="session-storage"></div>
+    <hr>
+    <div class="buttons">
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <button><img src="img/image.png" alt="image Icon" style="height:17px; width:20px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 2px;margin-bottom: 5px;"> 超强AI绘图模式</button>
+        <button><img src="img/actor.png" alt="actor Icon" style="height:17px; width:20px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 2px;margin-bottom: 5px;"> 进入Prompt角色扮演</button>
+        <button><img src="img/helper.png" alt="helper Icon" style="height:17px; width:20px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 2px;margin-bottom: 3px;"> 联系客服</button>
+        <button><img src="img/Wechat.png" alt="Wechat Icon" style="height:17px; width:20px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 2px;margin-bottom: 5px;"> 加群交流</button>
+        <button id="modeSwitchButton"><img src="img/Sun.png" alt="Sun Icon" style="height:23px; width:23px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 0px;margin-bottom: 3px;"> 黑夜模式</button>
+        <button><img src="img/login.png" alt="login Icon" style="height:17px; width:17px;filter: brightness(250%);position: relative;vertical-align:middle;margin-right: 0px;margin-bottom: 3px;"> 登录/注册   <span class="upgrade">升级会员</span></button>
+    </div>
+    <hr>
+    <div class="more">
+        <span>更多功能</span>
+        <span>...</span>
+    </div>
+</div>
+
+  <div id="main">
+    <div id="versionSelector">
+      <div  class="versionButton" id="v3_5">GPT3.5</div>
+      <div  class="versionButton" id="v4_0">GPT4.0</div>
+      <p class="chatgtp" id="ChatGPT">ChatGPT</p>
+      <p class="PLUS" id="PLUS">PLUS</p>
+    </div>
+  </div>
+
+  <div id ="content1">
+    <img id="ChatIcon" src="img/Chat.png" alt="Chat icon">
+    <div id="example">使用示例</div>
+    <p id="question1">"什么是全栈开发?"</p>
+    <p id="question2">"女朋友快过生日了,该准备什么生日礼物"</p>
+    <p id="question3">"分享十个创业好点子"</p>
+  </div>
+
+  <div id ="content2">
+    <img id="ChatIcon" src="img/CPU.png" alt="CPU icon">
+    <div id="power">能力</div>
+    <p id="question1">"对话能够联系上下文"</p>
+    <p id="question2">"可以自己发现错误并修改,自动拒绝不正当的请求"</p>
+    <p id="question3">"尝试体验第四次工业革命"</p>
+  </div>
+
+  <div id ="content3">
+    <img id="ChatIcon" src="img/Warn.png" alt="Warn icon">
+    <div id="limit">局限性</div>
+    <p id="question1">"可能会编造虚假信息"</p>
+    <p id="question2">"数据只截止到2021年9月,对之后的世界不甚了解"</p>
+    <p id="question3">"可能会有不正确的信息"</p>
+  </div>
+
+    <div id="conversation">
+      <!-- 对话内容会在这里 -->
+    </div>
+    <div id="inputSection">
+      <input type="text" id="inputText" placeholder="想问点什么吗？">
+      <button id="sendButton">发送</button>
+    </div>
+
+
+<!-- 登录对话框 -->
+<div id="login-dialog" style="display: none;">
+  <h2>请登录</h2>
+  <form id="login-form">
+      <label for="username">用户名:</label>
+      <input type="text" id="username" name="username">
+      <label for="password">密码:</label>
+      <input type="password" id="password" name="password">
+      <input type="submit" value="登录">
+  </form>
+  <button id="register">注册</button>
+  <button id="wechat-login">微信登录</button>
+  <button id="google-login">Google登录</button>
+</div>
+
+<!-- 现在我们在原有的登录对话框下方再添加一个注册对话框 -->
+<div id="signup-dialog" class="dialog" style="display: none;">
+  <h2>注册</h2>
+  <form id="signup-form">
+      <div class="input-row">
+          <label for="signup-email">邮箱:</label>
+          <input type="text" id="signup-email" name="email">
+          <p class="error-message"></p>
+      </div>
+      <div class="input-row">
+          <label for="signup-password">密码:</label>
+          <input type="password" id="signup-password" name="password">
+          <p class="error-message"></p>
+      </div>
+      <div class="input-row">
+          <label for="signup-password-confirm">确认密码:</label>
+          <input type="password" id="signup-password-confirm" name="password-confirm">
+          <p class="error-message"></p>
+      </div>
+      <div class="input-row">
+          <label for="signup-captcha">验证码:</label>
+          <input type="text" id="signup-captcha" name="captcha">
+          <button type="button" id="get-captcha">获取验证码</button>
+          <p class="error-message"></p>
+      </div>
+      <div class="input-row">
+          <input type="submit" value="注册">
+      </div>
+  </form>
+  <p>已有账号，<a href="#" id="go-to-login">直接登录</a></p>
+</div>
+
+  </div>
+  <script src="scripts.js"></script>
+  <script src="clickLogin.js"></script>
+  <script src="Night.js"></script>
+</body>
+</html>

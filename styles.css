@@ -1,0 +1,818 @@
+* {
+  margin: 0 ;
+  padding: 0 ;
+}
+
+
+#sidenav {
+  top: 0;
+  position: absolute;
+}
+
+#root {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    margin-top: -30px;
+    padding: 0 !important;
+    background-color: #f8f9fa;
+    overflow-x: hidden; /* 禁用横向滚动 */
+    overflow-y:hidden;
+  }
+  
+  #root.dark{
+    background-color: #343541;
+  }
+
+  :root {
+    --line-color: #e5e5e5;
+    --line-color-dark: #666;
+  }
+  
+  #root.dark {
+    --line-color: var(--line-color-dark);
+  }
+
+  /*导航栏*/
+  #sidebar {
+    background-color: #202123;
+    color: white;
+    width: 250px;
+    overflow-y: auto; /* Add this */
+    min-height: 100vh;
+    position: fixed;
+    z-index: 1; /* 始终无法被透过 */  
+    
+}
+
+.profile {
+    padding: 20px;
+}
+
+.profile img {
+    margin-left: 70px;
+    border-radius: 100%;
+    width: 80px;
+    height: 80px;
+    
+}
+
+#new-session {
+  display: block;
+  width: 90%;
+  text-align: left;
+  font-size: 15px;
+  border: 1px solid #8c939d;
+  background-color: black;
+  color: white;
+  margin: 10px 0;
+  padding: 10px; 
+  border-radius: 5px;
+  transition: background-color 0.3s; /* Add this */
+  margin-left: 10px; /* Add this */
+}
+
+#new-session:hover{
+  background-color: #343642;
+}
+
+
+/*用户对话记录*/
+.session-button{
+  display: block;
+  width: 90%;
+  text-align: left;
+  font-size: 14px;
+  border: 1px solid #202123;
+  background-color: #202123;
+  color: white;
+  margin: 10px 0;
+  padding: 10px; 
+  border-radius: 5px;
+  transition: background-color 0.3s; /* Add this */
+  margin-left: 10px; /* Add this */
+}
+
+.session-button:hover{
+  background-color: #343642;
+}
+
+.session-button.active{
+  background-color: #343642;
+}
+
+#login{
+  display: block;
+  width: 100%;
+  background-color: #202123;
+  color: white;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: center;
+  border: none; /* Add this */
+  font-size: 15px;
+  transition: background-color 0.3s; /* Add this */
+  border-radius: 5px;
+}
+
+#login:hover{
+  background-color: #343642;
+}
+
+.buttons button {
+  left: 5px;
+  display: block;
+  width: 100%;
+  background-color: #202123;
+  color: white;
+  margin: 10px 0;
+  padding: 10px;
+  text-align: left;
+  border: none; /* Add this */
+  font-size: 13px;
+  transition: background-color 0.3s; /* Add this */
+  border-radius: 5px;
+  position: relative;
+}
+
+.buttons button:hover {
+  background-color: #343642; /* Add this */
+}
+
+.session-storage {
+    height: 33vh;
+    overflow-y: auto;
+}
+
+.buttons {
+    padding: 10px;
+}
+
+.upgrade {
+  display: inline-block;
+  background: linear-gradient(to right, #ce9434, #fbb747);
+  padding: 3px 6px;
+  border-radius: 3px;
+  color: white;
+  font-size: 10px;
+  position: relative;
+  margin-left: 4px;
+}
+
+
+.more {
+  margin-bottom: 0%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+ /*导航栏结束*/
+ 
+ #ChatGPT {
+  font-size: 40px; /* 改变字体大小 */
+  font-weight:bold;
+  text-align: center;
+  color: #d9d9e3; /* 改变字体颜色 */
+  margin-left: 9%;
+  margin-top: 120px;
+  position: absolute;
+}
+
+#PLUS{
+  padding: 2px 4px;
+  font-size:14px;
+  color: #927201;
+  font-weight:bold;/*加粗*/
+  background-color: #fef08a;
+  position:absolute;
+  border-radius: 4px;
+  margin-left: 20.8%;
+  margin-top: 140px
+  
+  
+}
+
+#content1 {
+  position: relative;
+  margin-top: 145px;
+  left: 39%;
+}
+
+#example {
+  position: absolute;
+  top: 50px;  /* 调整这个值以改变元素的垂直位置 */
+  left: -18px; /* 调整这个值以改变元素的水平位置 */
+  font-size: 20px;
+}
+
+#content1 p {
+  transition: background-color 0.3s;
+  display: block;
+  position: relative;
+  top: 30px;
+  right:88px;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f3f3f5;
+  padding: 15px;
+  margin-bottom: 10px;
+  width: 16em;
+  word-wrap: break-word;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#root.dark #content1 p {
+  background-color: #444654;  /* 设置深色模式下的背景颜色 */
+  color: #ffffff;
+}
+
+#root.dark #example {
+  color: #ffffff;
+}
+
+
+#content1 p:hover{
+  background-color: #ececf1;
+}
+
+#content2 {
+  position: relative;
+  margin-top: -270px;
+  left: 53%;
+}
+
+#power {
+  position: absolute;
+  top: 50px;  /* 调整这个值以改变元素的垂直位置 */
+  left: -3px; /* 调整这个值以改变元素的水平位置 */
+  font-size: 20px;
+}
+
+#root.dark #content2 p {
+  background-color: #444654;  /* 设置深色模式下的背景颜色 */
+  color: #ffffff;
+}
+
+#root.dark #power {
+  color: #ffffff;
+}
+
+#content2 p {
+  transition: background-color 0.3s;
+  display: block;
+  position: relative;
+  top: 30px;
+  right:88px;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f3f3f5;
+  padding: 15px;
+  margin-bottom: 10px;
+  width: 16em;
+  word-wrap: break-word;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#content2 p:hover{
+  background-color: #ececf1;
+}
+
+#content3 {
+  position: absolute;
+  margin-top: -270px;
+  left: 67%;
+}
+
+#limit {
+  position: absolute;
+  top: 50px;  /* 调整这个值以改变元素的垂直位置 */
+  left: 3px; /* 调整这个值以改变元素的水平位置 */
+  font-size: 20px;
+}
+
+#content3 p {
+  transition: background-color 0.3s;
+  display: block;
+  position: relative;
+  top: 30px;
+  right:88px;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #f3f3f5;
+  padding: 15px;
+  margin-bottom: 10px;
+  width: 16em;
+  word-wrap: break-word;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#content3 p:hover{
+  background-color: #ececf1;
+}
+
+
+#root.dark #content3 p {
+  background-color: #444654;  /* 设置深色模式下的背景颜色 */
+  color: #ffffff;
+}
+
+#root.dark #limit {
+  color: #ffffff;
+}
+
+
+.modelInfo{
+    background-color: #0000ff;
+    
+    font-size: 14px;
+    text-align: center;
+    
+  }
+
+  #versionSelector, #header, #conversation, #inputSection {
+    margin: 20px;
+  }
+
+  #versionSelector {
+    
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .buttonWrapper {
+    background-color: red;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 5px;
+  }
+  .versionButton {
+
+    padding: 2px 4px;
+    background-color: #ececf1;
+    left: 80PX;
+    vertical-align:middle;
+    text-align: center;
+    position: relative;
+    margin-top: 20px;
+    padding: 15PX;
+    width: 110px;
+    height: 13px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background-color 0.5s;
+    border: none;
+  }
+  
+  .versionButton.active {
+    background-color: #ddd;
+  }
+  
+  #conversation {
+    
+    padding: 10px 20px;
+    width: 104%;
+    margin-left: -2%;
+    height: calc(100vh - 155px); /*AI对话界面的显示范围（上下）*/
+    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden; /* 禁用横向滚动 */
+  }
+
+  .message {
+    
+    background-color: #ffffff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+  .messageContent {
+    width: 37em; /* 根据你的字体大小和需要的字符数来调整这个值 */
+    word-wrap: break-word;
+  }
+  
+  .user .messageContent {
+    
+    color: #000;
+    padding: 10px;
+    word-break: break-word;
+    font-size: 15px;
+    text-align: left;
+    position: relative;
+    left: 0;
+  }
+
+  #root.dark .message {
+    background-color: #343541;  /* 设置深色模式下的背景颜色 */
+  }
+  
+  #root.dark .user .messageContent{
+    color: #ffffff;
+  }
+  
+  .user .avatar {
+    flex-shrink: 0;
+    background-image: url('img/user.jpeg');
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    margin: 8px;
+    left: 38%;        /*图标*/
+    position: relative;
+    background-color: #03d2f7;
+    align-self: flex-start;
+    vertical-align:middle;
+    margin-right: 38%;
+  }
+/*AI对话界面*/
+.ai .messageContent {
+    color: #000;
+    word-break: break-word;
+    font-size: 15px;
+    text-align: left;
+    padding-left: 10px;
+    margin-top: 8px;  /* 添加这一行 */
+}
+
+.aiMessage {
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #f3f3f7;  /* 设置整个AI消息区域的背景颜色为灰色 */
+}
+
+#root.dark .aiMessage {
+  background-color: #444654;  /* 设置深色模式下的背景颜色 */
+  color: #ffffff;
+}
+
+#root.dark .ai .messageContent{
+  color: #ffffff;
+}
+
+.ai {
+    background-color: #f3f3f7;
+}
+
+
+.ai .avatar {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  margin: 8px;
+  left: 38%;
+  position: relative;
+  background-color: #00ff00;
+  background-image: url('img/chatgtpp.png'); /* AI的图片 */
+  background-size: cover; /* Add this */
+  align-self: flex-start;
+  vertical-align:middle;
+  margin-right: 38%;
+  
+}
+/*代码栏*/
+pre {
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto; /* 添加滚动条以防止代码超出边界 */
+  font-family: 'Consolas'; /* 使用等宽字体 */
+}
+
+#language{
+  background-color: grey;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto; /* 添加滚动条以防止代码超出边界 */
+  font-family: 'Consolas'; /* 使用等宽字体 */
+}
+
+code {
+  font-family: 'Consolas'; /* 使用等宽字体 */
+}
+
+  #inputSection {
+    position: fixed;
+    margin-left: 15%;
+    bottom: 0;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #root.dark #inputSection {
+    color: #ffffff;
+    background-color: #4a4a55;  /* 设置深色模式下的背景颜色 */
+}
+
+  
+  #inputText {
+    flex-grow: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    color: #000000;
+  }
+
+  #root.dark #inputText {
+    
+    color: #ffffff;
+    background-color: #4a4a55;  /* 设置深色模式下的背景颜色 */
+}
+  
+  #sendButton{
+    background-image: url("img/send2.png");
+    background-size: cover;
+    width: 50px;
+    height: auto;
+    background-position: center;
+    background-color: transparent;
+    color: transparent;
+    border: none;/*没有边框*/
+    cursor: pointer;/*鼠标放上后显示可点击*/
+  }
+  
+  .modelInfo {
+    width: 100%;
+    padding: 10px;
+    background-color: #ddd;
+    color: #000;
+    text-align: center;
+    margin-bottom: 10px;
+    position: relative;
+    left: 0%;
+  }
+  
+  .lightning {
+    display: inline-block;
+    color: yellow;
+  }
+  
+  /*自动换行*/
+  .line {
+    border: none;
+    border-top: 1px solid #ccc; /* 设置线的颜色和粗细 */
+    width: 100%; /* 确保线的宽度和消息一样宽 */
+  } 
+
+
+
+  /*login*/
+  .container{
+    background-color: #fff;
+    width: 650px;
+    height: 415px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    position:fixed;
+    display: none;
+    left: 35%;
+    top:25%;
+    z-index: 3; 
+    
+  
+}
+
+.container.show {
+  opacity: 1;
+  visibility: visible;
+}
+.form-box{
+    position: absolute;
+    top: -10%;
+    left: 5%;
+    background-color: #d3b7d8;
+    width: 320px;
+    height: 500px;
+    border-radius: 5px;
+    box-shadow:2px 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transition: all 0.5s ease-in-out;
+}
+.register-box, .login-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.hidden{
+    display: none;
+    transition: all 0.5s;
+}
+h1{
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color:#fff;
+    letter-spacing: 5px;
+}
+input{
+    background-color: transparent;
+    width: 70%;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255,255, 0.4);
+    padding: 10px 0;
+    text-indent: 10px;
+    margin: 8px 0;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+input::placeholder{
+    color: #fff;
+}
+input:focus{
+    color:#a262ad;
+    outline: none;
+    border-bottom: 1px solid #a262ad80;
+    transition: 0.5s;
+}
+input:focus::placeholder{
+    opacity: 0;
+}
+.form-box button{
+    width: 70%;
+    margin-top: 35px;
+    background-color: #f6f6f6;
+    outline: none;
+    border-radius: 8px;
+    padding: 13px;
+    color:#a262ad;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+}
+.form-box button:hover{
+    background-color: #a262ad;
+    color:#f6f6f6;
+    transition: background-color 0.5s ease;
+}
+.con-box{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.con-box.left{
+    left:-2%
+}
+.con-box.right{
+    right:-2%
+}
+.con-box h2{
+    color: #8e9aaf;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+.con-box p{
+    font-size: 12px;
+    letter-spacing: 2px;
+    color:#8e9aaf;
+    text-align: center;
+}
+.con-box span{
+    color: #d3b7d8;
+}
+.con-box img{
+    width:150px;
+    height:150px;
+    opacity: 0.9;
+    margin: 40px 0;
+}
+
+.con-box button{
+    margin-top: 3%;
+    background-color: #fff;
+    color:#a262ad;
+    border: 1px solid #d3b7d8;
+    padding: 6px 10px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    outline: none;
+    cursor: pointer;
+}
+.con-box button:hover{
+    background-color: #d3b7d8;
+    color: #fff;
+}
+
+
+/*蒙版背景*/
+#overlay {
+  position: fixed; /* Positioned relative to the document root */
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(200deg,#f3e7e9,#e3eeff); /* Black background with opacity */
+  
+}
+
+/*登录错误提示*/
+#usernameError{
+  color: #a262ad;
+  font-size: 14px;
+  
+}
+
+#passwordError{
+  color: #a262ad;
+  font-size: 14px;
+}
+
+#registerUsernameError{
+  color: #a262ad;
+  font-size: 14px;
+}
+
+#registerPasswordError{
+  color: #a262ad;
+  font-display: center;
+  font-size: 12px;
+}
+
+#confirmPasswordError{
+  color: #a262ad;
+  font-size: 14px;
+}
+
+#autoCodeError{
+  color: #a262ad;
+  font-size: 14px;
+}
+
+
+
+
+
+/*滚动条样式*/
+::-webkit-scrollbar {
+  width: 10px;
+   height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc; 
+  border-radius: 5px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(109, 193, 214);
+}
+
+/*黑夜模式消失线*/
+hr.dark-mode {
+  border-top: none;
+}
+
+
+
+
+#dropdownMenu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdownItem {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#versionButton:hover #dropdownMenu {
+  display: block;
+}
+
+/*显示3.5还是4.0*/
+#versionButton{
+  display: block;
+}
